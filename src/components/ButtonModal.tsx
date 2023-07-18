@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
+
+type MyCallback = () => void;
 
 const ConfirmButtonWithModal = ({
     callback,
     children,
 }: {
-    callback: Function;
+    callback: MyCallback;
     children: ReactNode;
 }) => {
     const [isOpen, setIsOpen] = useState(false);
