@@ -1,13 +1,17 @@
-import { LegacyRef, ReactNode, RefObject, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-type D3Container = d3.Selection<SVGSVGElement, unknown, null, undefined>;
+type D3Container = d3.Selection<HTMLDivElement, unknown, null, undefined>;
 
-// square params
-const squareSize = 50;
-const padding = 8;
+// container params
+const squareSize = 60;
+const padding = 20;
 const strokeWidth = 3;
 const color = '#feecbc';
+
+// square params (dynamic)
+const svgContainerWidth = squareSize + padding * 2 + strokeWidth * 2;
+const svgContainerHeight = (squareSize + padding * 2 + strokeWidth * 2) * 3;
 
 /**
  * Draws a square with d3 which counts to 5
@@ -81,52 +85,32 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
 }
 
 const drawPoints = (ref: D3Container, points: number) => {
-    // const svgContainer = d3.select(ref).append('svg').attr('width', 200).attr('height', 300);
-
-    // const svgContainer = d3.select(ref);
-
-    // svgContainer.selectAll('*').remove();
-
     let currenTotal = points > 15 ? points - 15 : points;
 
     for (let loop = 0; currenTotal > 0; loop++) {
         drawSquare(ref, currenTotal, loop);
         currenTotal -= 5;
     }
-
-    // drawSquare(ref, currenTotal, 0);
-
-    // drawSquare(ref, points, 0);
-    // svgContainer.selectAll('rect')
-    //     .data(points)
-    //     .enter()
-    //     .append('rect')
-    //     .attr('x', (d, i) => i * 70)
-    //     .attr('y', (d) => 300 - d)
-    //     .attr('width', 65)
-    //     .attr('height', (d) => d)
-    //     .attr('fill', 'steelblue');
 };
-
-// type MyRef = React.RefObject<HTMLInputElement>;
 
 const PointsVisualizer = ({ count }: { count: number }) => {
     const d3Ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-        console.log('did mount!');
-        if (d3Ref.current) {
-            const svgContainer = d3
-                .select(d3Ref.current)
-                .append('svg')
-                .attr('width', 66)
-                .attr('height', 178)
-                .attr('border', 'solid 1px blue');
 
-            drawPoints(svgContainer, count);
+    useEffect(() => {
+        if (!d3Ref.current) return;
+
+        const svgContainer: D3Container = d3.select(d3Ref.current);
+
+        if (svgContainer.selectAll('svg').empty()) {
+            svgContainer
+                .append('svg')
+                .attr('width', svgContainerWidth)
+                .attr('height', svgContainerHeight);
         }
+
+        drawPoints(svgContainer.select('svg'), count);
         return () => {
-            const svgContainer = d3.select(d3Ref.current);
-            svgContainer.selectAll('*').remove();
+            svgContainer?.selectAll('svg').remove();
         };
     }, [count]);
 
