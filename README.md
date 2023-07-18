@@ -15,15 +15,15 @@ This is a working app, but intended as a POC to practice:
 
 <!-- 
 TODO:
-
-i18n
-PWA donwloadable
+- PWA donwloadable
+- i18n selector
+- Unit tests
 
 Aditional todos (next stage):
-Enable select to 15/30 games
-add darkmode
-Undo & Redo
-Special values selector (envido, real, etc...)
+- Enable select to 15/30 games
+- Special values selector (envido, real, etc...)
+- Undo & Redo
+- add darkmode
 
 https://www.knowledgehut.com/blog/web-development/build-progressive-web-app-with-react-js
 

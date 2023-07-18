@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useContext, useState } from 'react';
+import LanguageContext from '../context/language';
 
 type MyCallback = () => void;
 
@@ -10,6 +11,7 @@ const ConfirmButtonWithModal = ({
     children: ReactNode;
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const translations = useContext(LanguageContext);
     const handleConfirm = () => {
         setIsOpen(false);
         callback();
@@ -20,13 +22,13 @@ const ConfirmButtonWithModal = ({
             {isOpen && (
                 <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-zinc-500/[.6]">
                     <section className="flex h-32 w-52 flex-col items-center justify-center bg-white">
-                        <section className="mb-2">Are you sure?</section>
+                        <section className="mb-2">{translations.resetPrompt}</section>
                         <section>
                             <button className="bg-red-200" onClick={() => setIsOpen(false)}>
-                                No
+                                {translations.no}
                             </button>
                             <button className="ml-2 bg-blue-200" onClick={handleConfirm}>
-                                Yes
+                                {translations.yes}
                             </button>
                         </section>
                     </section>

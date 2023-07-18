@@ -1,7 +1,5 @@
 // keep screen on
 try {
-    console.log('hola mundo');
-
     const browserNav: any = navigator;
     if ('wakeLock' in navigator) {
         browserNav['wakeLock'].request('screen');
