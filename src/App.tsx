@@ -54,69 +54,75 @@ function App() {
     // console.log({ pointsList, currentIndex });
 
     return (
-        <main className="h-screen overflow-hidden bg-emerald-600 p-2">
-            <h1 className="bg-emerald-950 text-white shadow-black drop-shadow-md">Truco Counter</h1>
+        <div className="flex h-screen items-center justify-center bg-emerald-950">
+            <main className="relative h-screen max-h-[915px] w-full max-w-md overflow-hidden bg-emerald-600 p-2">
+                <h1 className="bg-emerald-950 text-white shadow-black drop-shadow-md">
+                    Truco Counter
+                </h1>
 
-            <section className="m-auto mt-10 grid max-w-md">
-                <div className="top-left border-b-2 border-r-2 border-white">
-                    <div className="card">
-                        <h2 className="text-3xl font-bold text-green-100">Us</h2>
+                <section className="m-auto mt-10 grid max-w-md">
+                    <div className="top-left border-b-2 border-r-2 border-white">
+                        <div className="card">
+                            <h2 className="text-3xl font-bold text-green-100">Us</h2>
+                        </div>
                     </div>
-                </div>
-                <div className="top-right border-b-2 border-white">
-                    <div className="card">
-                        <h2 className="text-3xl font-bold text-green-100">Them</h2>
+                    <div className="top-right border-b-2 border-white">
+                        <div className="card">
+                            <h2 className="text-3xl font-bold text-green-100">Them</h2>
+                        </div>
                     </div>
-                </div>
-                <div className="bottom-left border-r-2 border-white">
-                    <GameStageIndicator points={currentPoints.us} />
-                    <PointsVisualizer count={currentPoints.us} />
-                </div>
-                <div className="bottom-right">
-                    <GameStageIndicator points={currentPoints.them} />
-                    <PointsVisualizer count={currentPoints.them} />
-                </div>
-            </section>
-            {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Previous</button> */}
-            <section className="fixed bottom-0 left-0 flex w-full flex-wrap justify-center bg-emerald-600 p-4">
-                <div className="flex w-full justify-around pb-2">
-                    <Controls
-                        count={currentPoints.us}
-                        increase={() => dispatch({ type: 'add', payload: 'us' })}
-                        decrease={() => dispatch({ type: 'subtract', payload: 'us' })}
-                    />
-                    <Controls
-                        count={currentPoints.them}
-                        increase={() => dispatch({ type: 'add', payload: 'them' })}
-                        decrease={() => dispatch({ type: 'subtract', payload: 'them' })}
-                    />
-                </div>
+                    <div className="bottom-left border-r-2 border-white">
+                        <GameStageIndicator points={currentPoints.us} />
+                        <PointsVisualizer count={currentPoints.us} />
+                    </div>
+                    <div className="bottom-right">
+                        <GameStageIndicator points={currentPoints.them} />
+                        <PointsVisualizer count={currentPoints.them} />
+                    </div>
+                </section>
+                {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Previous</button> */}
+                <section className="absolute bottom-0 left-0 flex w-full flex-wrap justify-center bg-emerald-600 p-4">
+                    <div className="flex w-full justify-around pb-2">
+                        <Controls
+                            count={currentPoints.us}
+                            increase={() => dispatch({ type: 'add', payload: 'us' })}
+                            decrease={() => dispatch({ type: 'subtract', payload: 'us' })}
+                        />
+                        <Controls
+                            count={currentPoints.them}
+                            increase={() => dispatch({ type: 'add', payload: 'them' })}
+                            decrease={() => dispatch({ type: 'subtract', payload: 'them' })}
+                        />
+                    </div>
 
-                <ConfirmButtonWithModal callback={() => dispatch({ type: 'reset', payload: '' })}>
-                    RESET GAME
-                </ConfirmButtonWithModal>
-            </section>
-            {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Next</button> */}
-            {(currentPoints.us >= 30 || currentPoints.them >= 30) && (
-                <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-zinc-500/[.6]">
-                    <section className="flex h-52 w-52 flex-col items-center justify-center bg-white">
-                        🏆 {currentPoints.us >= 30 ? 'Your' : 'Their'} team wins!
-                        <button
-                            className="mt-2 bg-red-200"
-                            onClick={() => dispatch({ type: 'back', payload: '' })}
-                        >
-                            Go back
-                        </button>
-                        <button
-                            className="mt-2 bg-blue-200"
-                            onClick={() => dispatch({ type: 'reset', payload: '' })}
-                        >
-                            Play again!
-                        </button>
-                    </section>
-                </div>
-            )}
-        </main>
+                    <ConfirmButtonWithModal
+                        callback={() => dispatch({ type: 'reset', payload: '' })}
+                    >
+                        RESET GAME
+                    </ConfirmButtonWithModal>
+                </section>
+                {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Next</button> */}
+                {(currentPoints.us >= 30 || currentPoints.them >= 30) && (
+                    <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-zinc-500/[.6]">
+                        <section className="flex h-52 w-52 flex-col items-center justify-center bg-white">
+                            🏆 {currentPoints.us >= 30 ? 'Your' : 'Their'} team wins!
+                            <button
+                                className="mt-2 bg-red-200"
+                                onClick={() => dispatch({ type: 'back', payload: '' })}
+                            >
+                                Go back
+                            </button>
+                            <button
+                                className="mt-2 bg-blue-200"
+                                onClick={() => dispatch({ type: 'reset', payload: '' })}
+                            >
+                                Play again!
+                            </button>
+                        </section>
+                    </div>
+                )}
+            </main>
+        </div>
     );
 }
 
