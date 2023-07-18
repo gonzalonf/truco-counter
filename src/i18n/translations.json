@@ -1,4 +1,32 @@
 {
-    "en": {},
-    "es": {}
+    "en": {
+        "title": "Truco Counter",
+        "us": "Us",
+        "them": "Them",
+        "good15": "GOOD 15",
+        "bad15": "BAD 15",
+        "reset": "RESET GAME",
+        "resetPrompt": "Are you sure?",
+        "yes": "Yes",
+        "no": "No",
+        "youWinMsg": "Your team wins!",
+        "theyWinMsg": "Their team wins!",
+        "goBack": "Go back",
+        "playAgain": "Play again!"
+    },
+    "es": {
+        "title": "Truco Counter",
+        "us": "Nosotros",
+        "them": "Ellos",
+        "good15": "BUENAS",
+        "bad15": "MALAS",
+        "reset": "REINICIAR",
+        "resetPrompt": "Estas seguro?",
+        "yes": "Si",
+        "no": "No",
+        "youWinMsg": "Tu equipo gana!",
+        "theyWinMsg": "Su equipo gana!",
+        "goBack": "Volver",
+        "playAgain": "Jugar de nuevo!"
+    }
 }
