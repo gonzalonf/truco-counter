@@ -12,10 +12,9 @@ This is a working app, but intended as a POC to practice:
 <!-- 
 TODO:
 
-Optimize D3 rendering
 i18n
-PWA donwloadable
 Deploy!
+PWA donwloadable
 
 Aditional todos (next stage):
 Enable select to 15/30 games

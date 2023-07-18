@@ -1,18 +1,20 @@
+import { MouseEventHandler } from 'react';
+
 const Controls = ({
     count,
     increase,
     decrease,
 }: {
     count: number;
-    increase: Function;
-    decrease: Function;
+    increase: MouseEventHandler<HTMLButtonElement>;
+    decrease: MouseEventHandler<HTMLButtonElement>;
 }) => {
     return (
-        <div>
+        <div className="flex items-center">
             <button className="bg-red-200 font-bold" onClick={decrease}>
                 -
             </button>
-            <span className="bg-white p-2">{count}</span>
+            <div className="flex h-8 w-8 items-center justify-center bg-white p-2">{count}</div>
             <button className="bg-green-200 font-bold" onClick={increase}>
                 +
             </button>
