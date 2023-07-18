@@ -2,6 +2,10 @@
 
 Simpre app for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
 
+Try app [here](https://truco-counter.vercel.app/)!
+
+Views are optimized for mobile experience.
+
 This is a working app, but intended as a POC to practice:
 
 - PWA
@@ -13,7 +17,6 @@ This is a working app, but intended as a POC to practice:
 TODO:
 
 i18n
-Deploy!
 PWA donwloadable
 
 Aditional todos (next stage):
