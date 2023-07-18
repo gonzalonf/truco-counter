@@ -7,7 +7,7 @@ import PointsVisualizer from './components/PointsVisualizer';
 import GameStageIndicator from './components/GameStageIndicator';
 
 import LanguageContext from './context/language';
-('./context/language');
+
 
 interface CounterState {
     us: number;
