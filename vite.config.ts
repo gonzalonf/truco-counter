@@ -16,7 +16,7 @@ export default defineConfig({
                 name: 'Truco Counter',
                 short_name: 'TrucoCounter',
                 description: 'App to count points for Truco matches',
-                theme_color: '#ffffff',
+                theme_color: '#000000',
                 display: 'standalone',
                 start_url: '/',
                 icons: [
