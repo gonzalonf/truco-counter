@@ -102,19 +102,19 @@ function App() {
                 {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Next</button> */}
                 {(currentPoints.us >= 30 || currentPoints.them >= 30) && (
                     <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-zinc-500/[.6]">
-                        <section className="flex h-52 w-52 flex-col items-center justify-center bg-white">
+                        <section className="flex h-52 w-52 flex-col items-center justify-center bg-white text-black">
                             🏆{' '}
                             {currentPoints.us >= 30
                                 ? translations.youWinMsg
                                 : translations.theyWinMsg}
                             <button
-                                className="mt-2 bg-red-200"
+                                className="mt-2 bg-red-200 text-black"
                                 onClick={() => dispatch({ type: 'back', payload: '' })}
                             >
                                 {translations.goBack}
                             </button>
                             <button
-                                className="mt-2 bg-blue-200"
+                                className="mt-2 bg-blue-200 text-black"
                                 onClick={() => dispatch({ type: 'reset', payload: '' })}
                             >
                                 {translations.playAgain}
