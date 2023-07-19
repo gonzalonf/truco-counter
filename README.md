@@ -4,6 +4,8 @@ Simpre app for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wi
 
 Try app [here](https://truco-counter.vercel.app/)!
 
+You can also download it, as it is a PWA.
+
 Views are optimized for mobile experience.
 
 This is a working app, but intended as a POC to practice:
