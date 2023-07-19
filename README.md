@@ -15,9 +15,8 @@ This is a working app, but intended as a POC to practice:
 
 <!-- 
 TODO:
-- PWA donwloadable
-- i18n selector
 - Unit tests
+- i18n selector
 
 Aditional todos (next stage):
 - Enable select to 15/30 games
