@@ -51,7 +51,7 @@ function App() {
 
     return (
         <div className="flex h-screen items-center justify-center bg-emerald-950">
-            <main className="relative h-screen max-h-[915px] w-full max-w-md overflow-hidden bg-emerald-600 p-2">
+            <main className="relative h-screen max-h-[915px] w-full max-w-md overflow-hidden bg-emerald-600 p-2 lg:max-h-[700px]">
                 <h1 className="bg-emerald-950 text-white shadow-black drop-shadow-md">
                     {translations.title}
                 </h1>
