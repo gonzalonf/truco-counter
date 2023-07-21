@@ -1,6 +1,6 @@
 # Truco Counter
 
-Simpre app for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
+Simple app for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
 
 Try app [here](https://truco-counter.vercel.app/)!
 
