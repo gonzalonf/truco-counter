@@ -1,6 +1,6 @@
 # Truco Counter
 
-Simple Progressive Web Apps (PWA) for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
+Simple Progressive Web App (PWA) for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
 
 Try the app [here](https://truco-counter.vercel.app/)!
 
