@@ -1,4 +1,4 @@
-import { useContext, useReducer } from 'react';
+import { useContext } from 'react';
 import './App.css';
 
 import ConfirmButtonWithModal from './components/ButtonModal';
@@ -7,26 +7,45 @@ import PointsVisualizer from './components/PointsVisualizer';
 import GameStageIndicator from './components/GameStageIndicator';
 
 import LanguageContext from './context/language';
+import useCachedReducer from './hooks/useCachedReducer';
 
-
-interface CounterState {
+export type CounterState = {
     us: number;
     them: number;
-}
+};
 
-const initData: CounterState[] = [
+const initData: [CounterState] = [
     {
         us: 0,
         them: 0,
     },
 ];
+/* 
+const GAMESIZEOPTIONS = 15 | 30
+{
+    points: [
+        {
+            us: 0,
+            them: 0,
+        },
+    ],
+    labels: {
+        us: 'Us',
+        them: 'Them',
+    },
+    gameSize: 30
+}
+
+adjust styles
+reset game, clear all
+add sounds
+*/
 
 const reducer = (state: CounterState[], action: { type: string; payload: string }) => {
     const user: 'us' | 'them' = action.payload === 'us' ? 'us' : 'them';
-    const stateLastCopy = { ...state[state.length - 1] };
+    const stateLastCopy: CounterState = structuredClone(state[state.length - 1]);
     const currentValue = stateLastCopy[user];
 
-    // structuredClone()
     switch (action.type) {
         case 'add':
             stateLastCopy[user] = currentValue >= 30 ? currentValue : currentValue + 1;
@@ -44,10 +63,10 @@ const reducer = (state: CounterState[], action: { type: string; payload: string 
 };
 
 function App() {
-    const [pointsList, dispatch] = useReducer(reducer, initData);
+    const [pointsList, dispatch] = useCachedReducer<CounterState>(reducer, initData);
+    const translations = useContext(LanguageContext);
     // const [currentIndex, setCurrentIndex] = useState(0);
     const currentPoints = pointsList[pointsList.length - 1];
-    const translations = useContext(LanguageContext);
 
     return (
         <div className="flex h-screen items-center justify-center bg-emerald-950">
