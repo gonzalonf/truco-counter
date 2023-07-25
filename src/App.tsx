@@ -90,11 +90,15 @@ function App() {
                     </div>
                     <div className="bottom-left border-r-2 border-white">
                         <GameStageIndicator points={currentPoints.us} />
-                        <PointsVisualizer count={currentPoints.us} />
+                        <span onClick={() => dispatch({ type: 'add', payload: 'us' })}>
+                            <PointsVisualizer count={currentPoints.us} />
+                        </span>
                     </div>
                     <div className="bottom-right">
                         <GameStageIndicator points={currentPoints.them} />
-                        <PointsVisualizer count={currentPoints.them} />
+                        <span onClick={() => dispatch({ type: 'add', payload: 'them' })}>
+                            <PointsVisualizer count={currentPoints.them} />
+                        </span>
                     </div>
                 </section>
                 {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Previous</button> */}
