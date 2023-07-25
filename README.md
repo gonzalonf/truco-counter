@@ -18,13 +18,19 @@ This is a working app, but intended as a POC to practice:
 <!-- 
 TODO:
 - Unit tests
-- i18n selector
+- Add sounds
+- Prevent wide screen on mobile (rotate)
+- Adjust styles (dynamic height and responsive sizes)
 
-Aditional todos (next stage):
-- Enable select to 15/30 games
+TODO NEXT:
+- Settings modal (with clear all data, game size)
+- Change name labels
+- Undo & Redo (time travel)
+- Dark mode
 - Special values selector (envido, real, etc...)
-- Undo & Redo
-- add darkmode
+- Look & feel: fonts, chalk texture, better icon
+- UX do course and apply learnings
+
 
 https://www.knowledgehut.com/blog/web-development/build-progressive-web-app-with-react-js
 
