@@ -27,6 +27,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
         // Paint the left side
         d3Container
             .append('line')
+            .attr('aria-label', 'unit line')
             .attr('stroke-width', strokeWidth)
             .style('stroke', color)
             .attr('x1', coordinates.x)
@@ -39,6 +40,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
         // Paint the top side
         d3Container
             .append('line')
+            .attr('aria-label', 'unit line')
             .attr('stroke-width', strokeWidth)
             .style('stroke', color)
             .attr('x1', coordinates.x)
@@ -51,6 +53,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
         // Paint the right side
         d3Container
             .append('line')
+            .attr('aria-label', 'unit line')
             .attr('stroke-width', strokeWidth)
             .style('stroke', color)
             .attr('x1', coordinates.x + squareSize)
@@ -63,6 +66,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
         // Paint the bottom side
         d3Container
             .append('line')
+            .attr('aria-label', 'unit line')
             .attr('stroke-width', strokeWidth)
             .style('stroke', color)
             .attr('x1', coordinates.x + squareSize)
@@ -75,6 +79,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
         // Draw a diagonal line from lower left to upper right vertices
         d3Container
             .append('line')
+            .attr('aria-label', 'unit line')
             .attr('stroke-width', strokeWidth)
             .style('stroke', color)
             .attr('x1', coordinates.x)
@@ -85,7 +90,7 @@ function drawSquare(d3Container: D3Container, value: number, loopNumber = 0) {
 }
 
 const drawPoints = (ref: D3Container, points: number) => {
-    let currenTotal = points > 15 ? points - 15 : points;
+    let currenTotal = points > 30 ? 15 : points > 15 ? points - 15 : points;
 
     for (let loop = 0; currenTotal > 0; loop++) {
         drawSquare(ref, currenTotal, loop);
@@ -114,7 +119,13 @@ const PointsVisualizer = ({ count }: { count: number }) => {
         };
     }, [count]);
 
-    return <div ref={d3Ref} className="flex w-full items-center justify-center pt-3"></div>;
+    return (
+        <div
+            ref={d3Ref}
+            aria-label="Points graphical visualizer container"
+            className="flex w-full items-center justify-center pt-3"
+        ></div>
+    );
 };
 
 export default PointsVisualizer;

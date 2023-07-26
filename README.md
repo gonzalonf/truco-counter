@@ -22,6 +22,11 @@ TODO:
 - Prevent wide screen on mobile (rotate)
 - Adjust styles (dynamic height and responsive sizes)
 
+
+Test persist points on refresh
+Test good 15 message + page size
+Test buttons on App and count text
+
 TODO NEXT:
 - Settings modal (with clear all data, game size)
 - Change name labels
