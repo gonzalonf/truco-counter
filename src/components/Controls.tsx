@@ -4,13 +4,15 @@ const Controls = ({
     count,
     increase,
     decrease,
+    ariaLabel,
 }: {
     count: number;
     increase: MouseEventHandler<HTMLButtonElement>;
     decrease: MouseEventHandler<HTMLButtonElement>;
+    ariaLabel?: string;
 }) => {
     return (
-        <div className="flex items-center">
+        <div className="flex items-center" aria-label={ariaLabel}>
             <button
                 aria-label="Decrement points"
                 className="bg-red-200 font-bold"

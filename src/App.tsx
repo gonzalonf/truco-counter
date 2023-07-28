@@ -65,13 +65,13 @@ function App() {
                 <section className="absolute bottom-0 left-0 flex w-full flex-wrap justify-center bg-emerald-600 p-4">
                     <div className="flex w-full justify-around pb-2">
                         <Controls
-                            aria-label="Our points controller"
+                            ariaLabel="Our points controller"
                             count={currentPoints.us}
                             increase={() => dispatch({ type: 'add', payload: 'us' })}
                             decrease={() => dispatch({ type: 'subtract', payload: 'us' })}
                         />
                         <Controls
-                            aria-label="Their points controller"
+                            ariaLabel="Their points controller"
                             count={currentPoints.them}
                             increase={() => dispatch({ type: 'add', payload: 'them' })}
                             decrease={() => dispatch({ type: 'subtract', payload: 'them' })}
