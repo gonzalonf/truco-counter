@@ -29,7 +29,7 @@ describe('useCachedReducer', () => {
         expect(result.current[0]).toBe(2);
     });
 
-    it('Should persist state from sessionStorage', () => {
+    it('Should persist previous state from sessionStorage', () => {
         const { result } = renderHook(() => useCachedReducer<number>(reducer, 0, 'value'));
         const [state] = result.current;
 
