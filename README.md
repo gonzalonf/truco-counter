@@ -17,7 +17,6 @@ This is a working app, but intended as a POC to practice:
 
 <!-- 
 TODO:
-- Unit tests
 - Add sounds
 - Prevent wide screen on mobile (rotate)
 - Adjust styles (dynamic height and responsive sizes)
@@ -25,7 +24,8 @@ TODO:
 
 Test persist points on refresh
 Test good 15 message + page size
-Test buttons on App and count text
+Test control buttons on App and count text
+Test buttons: refresh yes/no, new game yes/no,   
 
 TODO NEXT:
 - Settings modal (with clear all data, game size)

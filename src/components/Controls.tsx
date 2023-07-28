@@ -18,11 +18,14 @@ const Controls = ({
             >
                 <span className="select-none text-black">-</span>
             </button>
-            <div className="flex h-8 w-8 select-none items-center justify-center bg-white p-2 text-black">
+            <div
+                aria-label="Displayed points"
+                className="flex h-8 w-8 select-none items-center justify-center bg-white p-2 text-black"
+            >
                 {count}
             </div>
             <button
-                aria-label="increment points"
+                aria-label="Increment points"
                 className="bg-green-200 font-bold"
                 onClick={increase}
             >

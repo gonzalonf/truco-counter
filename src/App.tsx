@@ -16,7 +16,7 @@ export type CounterState = {
 };
 
 function App() {
-    const [pointsList, dispatch] = useCachedReducer<CounterState>(reducer, initData);
+    const [pointsList, dispatch] = useCachedReducer<CounterState[]>(reducer, initData, 'points');
     const translations = useContext(LanguageContext);
     // const [currentIndex, setCurrentIndex] = useState(0);
     const currentPoints = pointsList[pointsList.length - 1];

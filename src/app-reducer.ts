@@ -24,9 +24,9 @@ const GAMESIZEOPTIONS = 15 | 30
 }
 */
 
-const reducer = (state: CounterState[], action: { type: string; payload: string }) => {
+const reducer = (state: CounterState[], action: { type: string; payload?: string }) => {
     const user: 'us' | 'them' = action.payload === 'us' ? 'us' : 'them';
-    const stateLastCopy: CounterState = structuredClone(state[state.length - 1]);
+    const stateLastCopy: CounterState = window.structuredClone(state[state.length - 1]);
     const currentValue = stateLastCopy[user];
 
     switch (action.type) {

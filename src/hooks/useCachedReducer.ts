@@ -2,24 +2,26 @@ import { Dispatch, Reducer, useEffect, useReducer } from 'react';
 
 type Action = {
     type: string;
-    payload: string;
+    payload?: string;
 };
 
-const storeKey = 'points';
-
+/**
+ * useCachedReducer - regular reducer with sessionStorage persistence
+ */
 const useCachedReducer = <T>(
-    reducer: Reducer<T[], Action>,
-    initialState: T[],
-): [T[], Dispatch<Action>] => {
+    reducer: Reducer<T, Action>,
+    initialState: T,
+    storeKey: string,
+): [T, Dispatch<Action>] => {
     const [pointsList, dispatch] = useReducer(reducer, initialState, (initial) => {
-        const storagePoints = window.sessionStorage.getItem('points');
-        const parsedStoragePoints: T[] | null = storagePoints ? JSON.parse(storagePoints) : null;
+        const storagePoints = window.sessionStorage.getItem(storeKey);
+        const parsedStoragePoints: T | null = storagePoints ? JSON.parse(storagePoints) : null;
         return parsedStoragePoints || initial;
     });
 
     useEffect(() => {
         window.sessionStorage.setItem(storeKey, window.JSON.stringify(pointsList));
-    }, [pointsList]);
+    }, [pointsList, storeKey]);
 
     return [pointsList, dispatch];
 };
