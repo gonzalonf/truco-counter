@@ -19,7 +19,7 @@ describe('useCachedReducer', () => {
 
     it('Should receive a reducer and a default state and provide same interface as a regular useReducer', () => {
         const { result } = renderHook(() => useCachedReducer<number>(reducer, 0, 'value'));
-        const [state, dispatch] = result.current;
+        const [, dispatch] = result.current;
 
         act(() => {
             dispatch({ type: 'increment' });
@@ -31,7 +31,7 @@ describe('useCachedReducer', () => {
 
     it('Should persist state from sessionStorage', () => {
         const { result } = renderHook(() => useCachedReducer<number>(reducer, 0, 'value'));
-        const [state, dispatch] = result.current;
+        const [, dispatch] = result.current;
 
         act(() => {
             dispatch({ type: 'decrement' });
