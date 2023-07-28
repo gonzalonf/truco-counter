@@ -1,4 +1,7 @@
-import { CounterState } from './App';
+export type CounterState = {
+    us: number;
+    them: number;
+};
 
 export const initData: [CounterState] = [
     {
@@ -7,22 +10,17 @@ export const initData: [CounterState] = [
     },
 ];
 
-/* 
-const GAMESIZEOPTIONS = 15 | 30
-{
-    points: [
-        {
-            us: 0,
-            them: 0,
-        },
-    ],
-    labels: {
-        us: 'Us',
-        them: 'Them',
-    },
-    gameSize: 30
-}
-*/
+export type AppState = {
+    points: CounterState[];
+    settings: {
+        gameSize: 15 | 30;
+        labels: {
+            us: string;
+            them: string;
+        };
+        language: string;
+    };
+};
 
 const reducer = (state: CounterState[], action: { type: string; payload?: string }) => {
     const user: 'us' | 'them' = action.payload === 'us' ? 'us' : 'them';

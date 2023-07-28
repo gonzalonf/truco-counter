@@ -8,17 +8,11 @@ import GameStageIndicator from './components/GameStageIndicator';
 
 import LanguageContext from './context/language';
 import useCachedReducer from './hooks/useCachedReducer';
-import reducer, { initData } from './app-reducer';
-
-export type CounterState = {
-    us: number;
-    them: number;
-};
+import reducer, { CounterState, initData } from './app-reducer';
 
 function App() {
     const [pointsList, dispatch] = useCachedReducer<CounterState[]>(reducer, initData, 'points');
     const translations = useContext(LanguageContext);
-    // const [currentIndex, setCurrentIndex] = useState(0);
     const currentPoints = pointsList[pointsList.length - 1];
 
     return (
