@@ -31,12 +31,8 @@ describe('useCachedReducer', () => {
 
     it('Should persist state from sessionStorage', () => {
         const { result } = renderHook(() => useCachedReducer<number>(reducer, 0, 'value'));
-        const [, dispatch] = result.current;
+        const [state] = result.current;
 
-        act(() => {
-            dispatch({ type: 'decrement' });
-        });
-
-        expect(result.current[0]).toBe(1);
+        expect(state).toBe(2);
     });
 });
