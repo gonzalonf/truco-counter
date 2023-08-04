@@ -20,22 +20,16 @@ TODO:
 - Add sounds
 - Prevent wide screen on mobile (rotate)
 - Adjust styles (dynamic height and responsive sizes)
+- Settings modal (with clear all data, game size)
+- Undo & Redo (time travel)
+- Look & feel: fonts, chalk texture, better icon
+- TEST buttons: refresh yes/no, new game yes/no,
 
-
-Test persist points on refresh
-Test good 15 message + page size
-Test control buttons on App and count text
-Test buttons: refresh yes/no, new game yes/no,   
 
 TODO NEXT:
-- Settings modal (with clear all data, game size)
 - Change name labels
-- Undo & Redo (time travel)
+- BUTTON (upside - and + controls) "Add n" => toggle modal with input and some options (falta envido, real envido, etc... concatenables)
 - Dark mode
-- Special values selector (envido, real, etc...)
-- Look & feel: fonts, chalk texture, better icon
-- UX do course and apply learnings
-
 
 https://www.knowledgehut.com/blog/web-development/build-progressive-web-app-with-react-js
 

@@ -6,21 +6,27 @@ type Action = {
 };
 
 /**
- * useCachedReducer - regular reducer with sessionStorage persistence
- */
+ * useCachedReducer - regular reducer with Storage persistence
+*/
+
+let storage = window.sessionStorage;
+
 const useCachedReducer = <T>(
     reducer: Reducer<T, Action>,
     initialState: T,
     storeKey: string,
+    localStorage?: boolean,
 ): [T, Dispatch<Action>] => {
+    if (localStorage) storage = window.localStorage;
+
     const [pointsList, dispatch] = useReducer(reducer, initialState, (initial) => {
-        const storagePoints = window.sessionStorage.getItem(storeKey);
+        const storagePoints = storage.getItem(storeKey);
         const parsedStoragePoints: T | null = storagePoints ? JSON.parse(storagePoints) : null;
         return parsedStoragePoints || initial;
     });
 
     useEffect(() => {
-        window.sessionStorage.setItem(storeKey, window.JSON.stringify(pointsList));
+        storage.setItem(storeKey, window.JSON.stringify(pointsList));
     }, [pointsList, storeKey]);
 
     return [pointsList, dispatch];
