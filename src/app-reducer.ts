@@ -2,20 +2,16 @@ import addUs from './assets/swish_1.mp3';
 import addThem from './assets/swish_2.mp3';
 import subtract from './assets/swish_reverse.mp3';
 
+const audios = {
+    us: new Audio(addUs),
+    them: new Audio(addThem),
+    subtract: new Audio(subtract),
+};
+
 const playSound = (sound: 'us' | 'them' | 'subtract') => {
-    switch (sound) {
-        case 'us':
-            new Audio(addUs).play();
-            break;
-        case 'them':
-            new Audio(addThem).play();
-            break;
-        case 'subtract':
-            new Audio(subtract).play();
-            break;
-        default:
-            break;
-    }
+    const currentSound: HTMLAudioElement = audios[sound];
+    currentSound.currentTime = 0;
+    currentSound.play();
 };
 
 export type CounterState = {
