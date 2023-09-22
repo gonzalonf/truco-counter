@@ -1,3 +1,23 @@
+import addUs from './assets/swish_1.mp3';
+import addThem from './assets/swish_2.mp3';
+import subtract from './assets/swish_reverse.mp3';
+
+const playSound = (sound: 'us' | 'them' | 'subtract') => {
+    switch (sound) {
+        case 'us':
+            new Audio(addUs).play();
+            break;
+        case 'them':
+            new Audio(addThem).play();
+            break;
+        case 'subtract':
+            new Audio(subtract).play();
+            break;
+        default:
+            break;
+    }
+};
+
 export type CounterState = {
     us: number;
     them: number;
@@ -30,9 +50,11 @@ const reducer = (state: CounterState[], action: { type: string; payload?: string
     switch (action.type) {
         case 'add':
             stateLastCopy[user] = currentValue >= 30 ? currentValue : currentValue + 1;
+            playSound(user);
             return [...state, stateLastCopy];
         case 'subtract':
             stateLastCopy[user] = currentValue <= 0 ? currentValue : currentValue - 1;
+            playSound('subtract');
             return [...state, stateLastCopy];
         case 'reset':
             return initData;
