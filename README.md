@@ -1,6 +1,7 @@
 # Truco Counter
 
-Simple Progressive Web App (PWA) for keeping scores on [Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
+Simple Progressive Web App (PWA) for keeping scores on
+[Argentinian Truco](https://en.wikipedia.org/wiki/Truco) matches.
 
 Try the app [here](https://truco-counter.vercel.app/)!
 
@@ -10,27 +11,24 @@ Views are optimized for mobile experience.
 
 This is a working app, but intended as a POC to practice:
 
-- PWA
-- D3
-- Tailwind
-- React Testing Library
+-   PWA
+-   D3
+-   Tailwind
+-   React Testing Library
 
-<!-- 
+<!--
 TODO:
-- Add sounds
-- Prevent wide screen on mobile (rotate)
 - Adjust styles (dynamic height and responsive sizes)
 - Settings modal (with clear all data, game size)
+- Prevent wide screen on mobile (rotate)
 - Undo & Redo (time travel)
-- Look & feel: fonts, chalk texture, better icon
-- TEST buttons: refresh yes/no, new game yes/no,
+- Look & feel / UX: fonts, chalk texture, better icon, better sounds?
 
-
-TODO NEXT:
+MAYBE:
+- volume controls
+- More settings => clear all data, game size (15 and 30), plural/singular, custom labels
 - Change name labels
 - BUTTON (upside - and + controls) "Add n" => toggle modal with input and some options (falta envido, real envido, etc... concatenables)
 - Dark mode
-
-https://www.knowledgehut.com/blog/web-development/build-progressive-web-app-with-react-js
 
  -->
