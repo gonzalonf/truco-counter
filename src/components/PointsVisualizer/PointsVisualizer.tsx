@@ -11,7 +11,8 @@ const color = '#feecbc';
 
 // square params (dynamic)
 const svgContainerWidth = squareSize + padding * 2 + strokeWidth * 2;
-const svgContainerHeight = (squareSize + padding * 2 + strokeWidth * 2) * 3;
+// const svgContainerHeight = (squareSize + padding * 2 + strokeWidth * 2) * 3;
+const svgContainerHeight = '100%';
 
 /**
  * Draws a square with d3 which counts to 5
@@ -123,7 +124,7 @@ const PointsVisualizer = ({ count }: { count: number }) => {
         <div
             ref={d3Ref}
             aria-label="Points graphical visualizer container"
-            className="flex w-full items-center justify-center pt-3"
+            className="flex h-full w-full items-center justify-center pt-3"
         ></div>
     );
 };

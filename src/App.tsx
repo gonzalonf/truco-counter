@@ -38,7 +38,7 @@ function App() {
                     </div>
                     <ButtonModalCustom
                         buttonContent={
-                            <div className="cursor-pointer select-none font-bold brightness-3 hue-rotate-90 sepia">
+                            <div className="cursor-pointer select-none font-bold text-black brightness-3 hue-rotate-90 sepia">
                                 ⚙️ Settings
                             </div>
                         }
@@ -51,7 +51,7 @@ function App() {
                         />
                     </ButtonModalCustom>
                 </section>
-                <section className="m-auto mt-10 grid max-w-md">
+                <article className="m-auto grid max-w-md">
                     <div className="top-left border-b-2 border-r-2 border-white">
                         <div className="card">
                             <h2 className="select-none text-3xl font-bold text-green-100">
@@ -66,16 +66,16 @@ function App() {
                             </h2>
                         </div>
                     </div>
-                    <div className="bottom-left border-r-2 border-white">
+                    <div className="mid-left border-r-2 border-white">
                         <GameStageIndicator points={currentPoints.us} />
-                        <span
-                            className="cursor-pointer"
+                        <div
+                            className="h-full cursor-pointer"
                             onClick={() => dispatch({ type: 'add', payload: 'us' })}
                         >
                             <PointsVisualizer count={currentPoints.us} />
-                        </span>
+                        </div>
                     </div>
-                    <div className="bottom-right">
+                    <div className="mid-right">
                         <GameStageIndicator points={currentPoints.them} />
                         <span
                             className="cursor-pointer"
@@ -84,31 +84,30 @@ function App() {
                             <PointsVisualizer count={currentPoints.them} />
                         </span>
                     </div>
-                </section>
-                {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Previous</button> */}
-                <section className="absolute bottom-0 left-0 flex w-full flex-wrap justify-center bg-emerald-600 p-4">
-                    <div className="flex w-full justify-around pb-2">
-                        <Controls
-                            ariaLabel="Our points controller"
-                            count={currentPoints.us}
-                            increase={() => dispatch({ type: 'add', payload: 'us' })}
-                            decrease={() => dispatch({ type: 'subtract', payload: 'us' })}
-                        />
-                        <Controls
-                            ariaLabel="Their points controller"
-                            count={currentPoints.them}
-                            increase={() => dispatch({ type: 'add', payload: 'them' })}
-                            decrease={() => dispatch({ type: 'subtract', payload: 'them' })}
-                        />
-                    </div>
-
-                    <ConfirmButtonWithModal
-                        callback={() => dispatch({ type: 'reset', payload: '' })}
-                    >
-                        <span className="select-none">{translations.reset}</span>
-                    </ConfirmButtonWithModal>
-                </section>
-                {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Next</button> */}
+                    <section className="bottom bottom-0 left-0 flex w-full flex-wrap content-center justify-center p-4">
+                        <div className="mb-2 flex w-full justify-around pb-2">
+                            <Controls
+                                ariaLabel="Our points controller"
+                                count={currentPoints.us}
+                                increase={() => dispatch({ type: 'add', payload: 'us' })}
+                                decrease={() => dispatch({ type: 'subtract', payload: 'us' })}
+                            />
+                            <Controls
+                                ariaLabel="Their points controller"
+                                count={currentPoints.them}
+                                increase={() => dispatch({ type: 'add', payload: 'them' })}
+                                decrease={() => dispatch({ type: 'subtract', payload: 'them' })}
+                            />
+                        </div>
+                        {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Previous</button> */}
+                        {/* <button onClick={() => dispatch({type: 'reset', payload: ''})}>Next</button> */}
+                        <ConfirmButtonWithModal
+                            callback={() => dispatch({ type: 'reset', payload: '' })}
+                        >
+                            <span className="select-none">{translations.reset}</span>
+                        </ConfirmButtonWithModal>
+                    </section>
+                </article>
                 {(currentPoints.us >= 30 || currentPoints.them >= 30) && (
                     <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-zinc-500/[.6]">
                         <section className="flex h-52 w-52 select-none flex-col items-center justify-center bg-white text-black">
