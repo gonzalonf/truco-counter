@@ -8,10 +8,10 @@ const audios = {
     subtract: new Audio(subtract),
 };
 
-const playSound = (sound: 'us' | 'them' | 'subtract', volume = 1) => {
+const playSound = (sound: 'us' | 'them' | 'subtract' /* volume = 1 */) => {
     const currentSound: HTMLAudioElement = audios[sound];
     currentSound.currentTime = 0;
-    currentSound.volume = 0.5;
+    // currentSound.volume = 0.5;
     currentSound.play();
 };
 
