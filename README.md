@@ -19,13 +19,12 @@ This is a working app, but intended as a POC to practice:
 <!--
 TODO:
 - Adjust styles (dynamic height and responsive sizes)
-- Settings modal (with clear all data, game size)
+- Settings: change language, volume control
 - Prevent wide screen on mobile (rotate)
 - Undo & Redo (time travel)
 - Look & feel / UX: fonts, chalk texture, better icon, better sounds?
 
-MAYBE:
-- volume controls
+MAYBE/LATER:
 - More settings => clear all data, game size (15 and 30), plural/singular, custom labels
 - Change name labels
 - BUTTON (upside - and + controls) "Add n" => toggle modal with input and some options (falta envido, real envido, etc... concatenables)

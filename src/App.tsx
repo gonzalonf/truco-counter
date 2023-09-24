@@ -3,17 +3,21 @@ import './App.css';
 
 import ConfirmButtonWithModal from './components/ButtonModal';
 import Controls from './components/Controls';
-import PointsVisualizer from './components/PointsVisualizer';
+import PointsVisualizer from './components/PointsVisualizer/PointsVisualizer';
 import GameStageIndicator from './components/GameStageIndicator';
 
 import LanguageContext from './context/language';
 import useCachedReducer from './hooks/useCachedReducer';
-import reducer, { CounterState, initData } from './app-reducer';
+import reducer, { AppState, initialData } from './app-reducer';
+import ButtonModalCustom from './components/ButtonModaCustom';
+
+import CustomSwitch from './components/Switch/Switch';
 
 function App() {
-    const [pointsList, dispatch] = useCachedReducer<CounterState[]>(reducer, initData, 'points');
+    const [appState, dispatch] = useCachedReducer<AppState>(reducer, initialData, 'appState', true);
     const translations = useContext(LanguageContext);
-    const currentPoints = pointsList[pointsList.length - 1];
+    const currentPoints = appState.points[appState.points?.length - 1];
+    const { settings } = appState;
 
     return (
         <div className="flex h-screen items-center justify-center bg-emerald-950">
@@ -21,12 +25,32 @@ function App() {
                 <h1 className="select-none bg-emerald-950 -tracking-widest text-white shadow-black drop-shadow-md">
                     {translations.title}
                 </h1>
-                {/* <section className="flex">
-                    <div className="select-none">lang: EN</div>
-                    <div className="select-none">Game: 15</div>
-                    <div className="select-none">🔈🔇</div>
-                    <div className="h-1 w-1 cursor-pointer select-none">⚙️</div>
-                </section> */}
+                <section className="flex justify-between">
+                    <div className="flex">
+                        {/* <div className="select-none">lang: EN</div>
+                        <div className="select-none">Game: 15</div> */}
+                        <div
+                            className="cursor-pointer select-none p-2 opacity-90 contrast-200 grayscale saturate-50"
+                            onClick={() => dispatch({ type: 'toggle-sound' })}
+                        >
+                            {settings.sound.on ? '🔈' : '🔇'}
+                        </div>
+                    </div>
+                    <ButtonModalCustom
+                        buttonContent={
+                            <div className="cursor-pointer select-none font-bold brightness-3 hue-rotate-90 sepia">
+                                ⚙️ Settings
+                            </div>
+                        }
+                    >
+                        <CustomSwitch
+                            label={translations.sound}
+                            switchKey="soundOn"
+                            checked={settings.sound.on}
+                            onChangeHandler={() => dispatch({ type: 'toggle-sound' })}
+                        />
+                    </ButtonModalCustom>
+                </section>
                 <section className="m-auto mt-10 grid max-w-md">
                     <div className="top-left border-b-2 border-r-2 border-white">
                         <div className="card">

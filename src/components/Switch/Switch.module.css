@@ -1,0 +1,38 @@
+/* Switch component*/
+.switch {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    .checkbox {
+        display: none;
+    }
+    .slider {
+        position: relative;
+        margin: 5px;
+        background: rgb(36, 36, 36);
+        width: 40px;
+        height: 20px;
+        border-radius: 20px;
+        transition: 0.3s;
+    }
+    .slider::after {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+        background: white;
+        left: 4%;
+        top: 50%;
+        transform: translate(0, -50%);
+        transition: 0.3s;
+    }
+    .checkbox:checked + .slider {
+        background: #00ad05;
+        transition: 0.3s;
+    }
+    .checkbox:checked + .slider::after {
+        left: calc(100% - 19px);
+        transition: 0.3s;
+    }
+}

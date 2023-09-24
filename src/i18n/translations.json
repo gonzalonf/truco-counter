@@ -12,7 +12,9 @@
         "youWinMsg": "Your team wins!",
         "theyWinMsg": "Their team wins!",
         "goBack": "Go back",
-        "playAgain": "Play again!"
+        "playAgain": "Play again!",
+        "sound": "Sound",
+        "close": "close"
     },
     "es": {
         "title": "Truco Counter",
@@ -27,6 +29,8 @@
         "youWinMsg": "Tu equipo gana!",
         "theyWinMsg": "Ellos ganan!",
         "goBack": "Volver",
-        "playAgain": "Jugar de nuevo!"
+        "playAgain": "Jugar de nuevo!",
+        "sound": "Sonido",
+        "close": "cerrar"
     }
 }
