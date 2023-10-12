@@ -19,12 +19,13 @@ const ButtonModalCustom = ({
             {isOpen && (
                 <div className="fixed left-0 top-0 z-10 flex h-full w-full flex-col items-center justify-center bg-zinc-500/[.6]">
                     <article className="flex h-32 w-52 flex-col items-center justify-center bg-white">
-                        <section className="flex w-full justify-end">
+                        <section className="flex w-full items-center justify-end">
                             <button
                                 className="noStyleButton text-black"
+                                aria-label="close button"
                                 onClick={() => setIsOpen(false)}
                             >
-                                {translations.close}
+                                {translations.close} ✖
                             </button>
                         </section>
                         <section className="flex h-32 w-52 flex-col items-center justify-center text-black">

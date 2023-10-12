@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './App.css';
 
 import ConfirmButtonWithModal from './components/ButtonModal';
@@ -19,6 +19,8 @@ function App() {
     const currentPoints = appState.points[appState.points?.length - 1];
     const { settings } = appState;
 
+    const [toggleCog, setToggleCog] = useState(false);
+
     return (
         <div className="flex h-screen items-center justify-center bg-emerald-950">
             <main className="relative h-screen max-h-[915px] w-full max-w-md overflow-hidden bg-emerald-600 p-2 lg:max-h-[700px]">
@@ -38,8 +40,18 @@ function App() {
                     </div>
                     <ButtonModalCustom
                         buttonContent={
-                            <div className="cursor-pointer select-none font-bold text-black brightness-3 hue-rotate-90 sepia">
-                                ⚙️ Settings
+                            <div
+                                className="cursor-pointer select-none font-bold text-black brightness-3 hue-rotate-90 sepia"
+                                onClick={() => setToggleCog(!toggleCog)}
+                            >
+                                <span
+                                    className={`inline-block transform transition-all duration-500 ${
+                                        toggleCog ? 'rotate-90' : 'rotate-0'
+                                    }`}
+                                >
+                                    ⚙️
+                                </span>{' '}
+                                Settings
                             </div>
                         }
                     >

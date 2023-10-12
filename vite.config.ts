@@ -27,6 +27,7 @@ export default defineConfig({
                 description: 'App to count points for Truco matches',
                 theme_color: '#000000',
                 display: 'standalone',
+                orientation: 'portrait',
                 start_url: '/',
                 icons: [
                     {
