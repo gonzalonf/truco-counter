@@ -45,9 +45,8 @@ function App() {
                                 onClick={() => setToggleCog(!toggleCog)}
                             >
                                 <span
-                                    className={`inline-block transform transition-all duration-500 ${
-                                        toggleCog ? 'rotate-90' : 'rotate-0'
-                                    }`}
+                                    className={`inline-block transform transition-all duration-500 ${toggleCog ? 'rotate-90' : 'rotate-0'
+                                        }`}
                                 >
                                     ⚙️
                                 </span>{' '}
@@ -116,7 +115,7 @@ function App() {
                         <ConfirmButtonWithModal
                             callback={() => dispatch({ type: 'reset', payload: '' })}
                         >
-                            <span className="select-none">{translations.reset}</span>
+                            <span className="select-none bg-black text-white">{translations.reset}</span>
                         </ConfirmButtonWithModal>
                     </section>
                 </article>
